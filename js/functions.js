@@ -26,18 +26,29 @@ function restaCuentaAtras() {
         switch (tiempoMax) {
             case 4:
                 info.innerHTML = "Prepare yourseeelf ...";
+                info.style.color = "#BF331D";
+                cuentaAtras.style.color = "#111";
                 break;
             case 3:
                 info.innerHTML = "Time's passing ...";
+                info.style.color = "#111";
+                cuentaAtras.style.color = "#BF331D";
                 break;
             case 2:
                 info.innerHTML = "Ok .. Ready ...";
+                info.style.color = "#BF331D";
+                cuentaAtras.style.color = "#111";
+
                 break;
             case 1:
                 info.innerHTML = "Set ...";
+                info.style.color = "#111";
+                cuentaAtras.style.color = "#BF331D";
                 break;
             case 0:
                 info.innerHTML = "GO!";
+                info.style.color = "#BF331D";
+                cuentaAtras.style.color = "#111";
                 break;
         }
 
