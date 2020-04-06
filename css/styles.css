@@ -43,6 +43,11 @@ button:hover {
     border: 4px solid #BF331D;
     font-size: 2.5em;
 }
+button:active {
+    background-color: #7e1b0b;
+    border: 4px solid #7e1b0b;
+    transition: none;
+}
 .presentacion {
     display: flex;
     justify-content: space-evenly;

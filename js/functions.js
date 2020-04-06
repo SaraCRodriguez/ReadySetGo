@@ -4,31 +4,45 @@ var presentacion = document.querySelector('.presentacion');
 var info = document.querySelector('#info');
 var imgJuego = document.querySelector('.imgJuego');
 var cuentaAtras = document.querySelector('.cuentaAtras');
+var btnEleccion = document.querySelector('.btnEleccion');
 
 btnJugar.addEventListener('click', function () {
     presentacion.classList.add('hide');
     info.classList.remove('hide');
     btnJugar.classList.add('hide');
     imgJuego.classList.remove('hide');
+    btnEleccion.classList.remove('hide');
     restaCuentaAtras();
 });
 
-var tiempoMax = 3;
+var tiempoMax = 5;
 function restaCuentaAtras() {
     cuentaAtras.innerHTML = tiempoMax;
     if (tiempoMax != 0) {
         tiempoMax -= 1;
+
+        setTimeout("restaCuentaAtras()", 1200);
+
         switch (tiempoMax) {
+            case 4:
+                info.innerHTML = "Prepare yourseeelf ...";
+                break;
             case 3:
-                info.innerHTML = "Ready ...";
+                info.innerHTML = "Time's passing ...";
+                break;
             case 2:
-                info.innerHTML = "Set ...";
+                info.innerHTML = "Ok .. Ready ...";
+                break;
             case 1:
+                info.innerHTML = "Set ...";
+                break;
+            case 0:
                 info.innerHTML = "GO!";
+                break;
         }
+
         cuentaAtras.classList.add('showCuentaAtras');
 
-        setTimeout("restaCuentaAtras()", 1000);
     } else {
         cuentaAtras.classList.add('hide');
         seleccionFigura();
@@ -67,13 +81,13 @@ function seleccionFigura() {
             break;
     }
 
-    setTimeout('reset()', 2000);
+    setTimeout('reset()', 5000);
 }
 
 function reset() {
     info.innerHTML = "Ready ...";
     imgJuego.style.backgroundImage = "none";
     cuentaAtras.classList.remove('hide');
-    tiempoMax = 3;
+    tiempoMax = 5;
     restaCuentaAtras();
 }
