@@ -18,7 +18,16 @@ function restaCuentaAtras() {
     cuentaAtras.innerHTML = tiempoMax;
     if (tiempoMax != 0) {
         tiempoMax -= 1;
+        switch (tiempoMax) {
+            case 3:
+                info.innerHTML = "Ready ...";
+            case 2:
+                info.innerHTML = "Set ...";
+            case 1:
+                info.innerHTML = "GO!";
+        }
         cuentaAtras.classList.add('showCuentaAtras');
+
         setTimeout("restaCuentaAtras()", 1000);
     } else {
         cuentaAtras.classList.add('hide');
@@ -34,22 +43,27 @@ function seleccionFigura() {
         case 1:
             info.innerHTML = "Rock";
             imgJuego.style.backgroundImage = "url(./img/piedra.svg)";
+            imgJuego.style.backgroundSize = "60%";
             break;
         case 2:
             info.innerHTML = "Paper";
             imgJuego.style.backgroundImage = "url(./img/papel.svg)";
+            imgJuego.style.backgroundSize = "60%";
             break;
         case 3:
             info.innerHTML = "Scissors";
             imgJuego.style.backgroundImage = "url(./img/tijeras.svg)";
+            imgJuego.style.backgroundSize = "60%";
             break;
         case 4:
             info.innerHTML = "Lizzard";
             imgJuego.style.backgroundImage = "url(./img/lagarto.svg)";
+            imgJuego.style.backgroundSize = "60%";
             break;
         case 5:
             info.innerHTML = "Spock";
             imgJuego.style.backgroundImage = "url(./img/spock.svg)";
+            imgJuego.style.backgroundSize = "60%";
             break;
     }
 
@@ -57,7 +71,7 @@ function seleccionFigura() {
 }
 
 function reset() {
-    info.innerHTML = "Preparado ...";
+    info.innerHTML = "Ready ...";
     imgJuego.style.backgroundImage = "none";
     cuentaAtras.classList.remove('hide');
     tiempoMax = 3;
