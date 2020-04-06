@@ -65,5 +65,14 @@ button:hover {
     align-items: center;
 }
 .cuentaAtras {
-    font-size: 15em;
+    font-size: 0em;
+    animation: showCuentaAtras .3s ease-in-out  1 normal forwards;
+}
+@keyframes showCuentaAtras {
+    from {
+        font-size: 0em;
+    }
+    to {
+        font-size: 15em;
+    }
 }

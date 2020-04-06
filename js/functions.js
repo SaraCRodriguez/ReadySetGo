@@ -15,6 +15,18 @@ function restaCuentaAtras() {
     if (tiempoMax != 0) {
         tiempoMax -= 1; // Esto es igual a tiempoMax = tiempoMax - 1;
         setTimeout("restaCuentaAtras()", 1000);
+
+        switch (tiempoMax) {
+            case 2:
+                document.querySelector('#info').innerHTML = "Ready ...";
+                break;
+            case 1:
+                document.querySelector('#info').innerHTML = "Set ...";
+                break;
+            case 0:
+                document.querySelector('#info').innerHTML = "GO!";
+                break;
+        }
     } else {
         document.querySelector('.cuentaAtras').classList.add('hide');
         seleccionFigura();
