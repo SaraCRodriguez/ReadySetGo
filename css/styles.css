@@ -14,6 +14,7 @@ body {
 }
 .logo {
     width: 20vw;
+    min-width: 310px;
     margin-top: 50px;
 }
 h1 {
@@ -52,6 +53,7 @@ button:hover {
 }
 .presentacion div {
     width: 40%;
+    min-width: 320px;
 }
 .imgJuego {
     width: 500px;
@@ -63,9 +65,12 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .3s ease-in-out;
 }
 .cuentaAtras {
     font-size: 0em;
+}
+.showCuentaAtras {
     animation: showCuentaAtras .3s ease-in-out  1 normal forwards;
 }
 @keyframes showCuentaAtras {
@@ -75,4 +80,12 @@ button:hover {
     to {
         font-size: 15em;
     }
+}
+
+footer {
+    padding-top: 40px;
+    font-size: 1rem;
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
 }

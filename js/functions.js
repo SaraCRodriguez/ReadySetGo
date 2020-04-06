@@ -1,34 +1,27 @@
-// document.addEventListener('DOMContentLoaded', function (event) { 
-// Esto se usa si ponemos script antes del body, si lo ponemos antes del cierre del body, esto no se pone por regla general
 
-document.querySelector('.btnJugar').addEventListener('click', function () {
-    document.querySelector('.presentacion').classList.add('hide');
-    document.querySelector('#info').classList.remove('hide');
-    document.querySelector('.btnJugar').classList.add('hide');
-    document.querySelector('.imgJuego').classList.remove('hide');
+var btnJugar = document.querySelector('.btnJugar');
+var presentacion = document.querySelector('.presentacion');
+var info = document.querySelector('#info');
+var imgJuego = document.querySelector('.imgJuego');
+var cuentaAtras = document.querySelector('.cuentaAtras');
+
+btnJugar.addEventListener('click', function () {
+    presentacion.classList.add('hide');
+    info.classList.remove('hide');
+    btnJugar.classList.add('hide');
+    imgJuego.classList.remove('hide');
     restaCuentaAtras();
 });
 
 var tiempoMax = 3;
 function restaCuentaAtras() {
-    document.querySelector('.cuentaAtras').innerHTML = tiempoMax; // innerHTML inserta texto a cualquier elemento HTML, borrando lo que había antes
+    cuentaAtras.innerHTML = tiempoMax;
     if (tiempoMax != 0) {
-        tiempoMax -= 1; // Esto es igual a tiempoMax = tiempoMax - 1;
+        tiempoMax -= 1;
+        cuentaAtras.classList.add('showCuentaAtras');
         setTimeout("restaCuentaAtras()", 1000);
-
-        switch (tiempoMax) {
-            case 2:
-                document.querySelector('#info').innerHTML = "Ready ...";
-                break;
-            case 1:
-                document.querySelector('#info').innerHTML = "Set ...";
-                break;
-            case 0:
-                document.querySelector('#info').innerHTML = "GO!";
-                break;
-        }
     } else {
-        document.querySelector('.cuentaAtras').classList.add('hide');
+        cuentaAtras.classList.add('hide');
         seleccionFigura();
     }
 }
@@ -39,24 +32,24 @@ function seleccionFigura() {
 
     switch (figura) {
         case 1:
-            document.querySelector('#info').innerHTML = "Rock";
-            document.querySelector('.imgJuego').style.backgroundImage = "url(./img/piedra.svg)";
+            info.innerHTML = "Rock";
+            imgJuego.style.backgroundImage = "url(./img/piedra.svg)";
             break;
         case 2:
-            document.querySelector('#info').innerHTML = "Paper";
-            document.querySelector('.imgJuego').style.backgroundImage = "url(./img/papel.svg)";
+            info.innerHTML = "Paper";
+            imgJuego.style.backgroundImage = "url(./img/papel.svg)";
             break;
         case 3:
-            document.querySelector('#info').innerHTML = "Scissors";
-            document.querySelector('.imgJuego').style.backgroundImage = "url(./img/tijeras.svg)";
+            info.innerHTML = "Scissors";
+            imgJuego.style.backgroundImage = "url(./img/tijeras.svg)";
             break;
         case 4:
-            document.querySelector('#info').innerHTML = "Lizzard";
-            document.querySelector('.imgJuego').style.backgroundImage = "url(./img/lagarto.svg)";
+            info.innerHTML = "Lizzard";
+            imgJuego.style.backgroundImage = "url(./img/lagarto.svg)";
             break;
         case 5:
-            document.querySelector('#info').innerHTML = "Spock";
-            document.querySelector('.imgJuego').style.backgroundImage = "url(./img/spock.svg)";
+            info.innerHTML = "Spock";
+            imgJuego.style.backgroundImage = "url(./img/spock.svg)";
             break;
     }
 
@@ -64,10 +57,9 @@ function seleccionFigura() {
 }
 
 function reset() {
-    document.querySelector('#info').innerHTML = "Preparado ...";
-    document.querySelector('.imgJuego').style.backgroundImage = "none";
-    document.querySelector('.cuentaAtras').classList.remove('hide');
+    info.innerHTML = "Preparado ...";
+    imgJuego.style.backgroundImage = "none";
+    cuentaAtras.classList.remove('hide');
     tiempoMax = 3;
     restaCuentaAtras();
 }
-// });
