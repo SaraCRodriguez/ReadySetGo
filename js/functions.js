@@ -141,17 +141,12 @@ function puntuar(ganador) {
     var PCScore = document.querySelector('#PCScore');
 
     if (ganador == 1) {
-        console.log("GANASTE!");
         puntosYo = puntosYo + 1;
         miScore.innerHTML = puntosYo;
     }
     else if (ganador == -1) {
-        console.log("PERDISTE!");
         puntosPC = puntosPC + 1
         PCScore.innerHTML = puntosPC;
-    }
-    else {
-        console.log("EMPATE!");
     }
 
 }
