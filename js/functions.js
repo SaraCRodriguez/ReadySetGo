@@ -58,7 +58,7 @@ function restaCuentaAtras() {
         cuentaAtras.classList.add('hide');
         seleccionFigura();
     }
-}
+};
 
 var figura;
 function seleccionFigura() {
@@ -92,8 +92,8 @@ function seleccionFigura() {
             break;
     }
 
-    setTimeout('reset()', 3000);
-}
+    setTimeout('reset()', 2200);
+};
 
 function reset() {
     info.innerHTML = "Ready ...";
@@ -101,4 +101,4 @@ function reset() {
     cuentaAtras.classList.remove('hide');
     tiempoMax = 5;
     restaCuentaAtras();
-}
+};
