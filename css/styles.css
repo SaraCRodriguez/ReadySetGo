@@ -33,6 +33,7 @@ button {
     font-size: 2em;
     padding: 15px 70px;
     border-radius: 15px;
+    border: 4px solid #BF331D;
     background-color: #BF331D;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -41,7 +42,6 @@ button {
 button:hover {
     background-color: rgb(252, 133, 22);
     border: 4px solid #BF331D;
-    font-size: 2.5em;
 }
 button:active {
     background-color: #7e1b0b;
@@ -93,6 +93,39 @@ button:disabled {
         font-size: 15em;
     }
 }
+.result {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    width: 20%;
+    min-width: 320px;
+    font-size: 2em;
+}
+.youWin {
+    position: relative;
+    left: -50%;
+    border: 3px solid #BF331D;
+    border-radius: 15px;
+    background-color: #fff;
+    color: #BF331D;
+}
+.youLose {
+    position: relative;
+    left: -50%;
+    border: 3px solid #BF331D;
+    border-radius: 15px;
+    background-color: #BF331D;
+    color: #fff;
+}
+.draw {
+    position: relative;
+    left: -50%;
+    border: 3px solid #7e1b0b;
+    border-radius: 15px;
+    background-color: #7e1b0b;
+    color: #fff;
+}
+
 .score {
     margin-top: 10px;
     font-size: 1.5rem;

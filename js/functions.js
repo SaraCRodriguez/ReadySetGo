@@ -1,5 +1,10 @@
-
 const btnJugar = document.querySelector('.btnJugar');
+const btnRock = document.querySelector('.btnRock');
+const btnPaper = document.querySelector('.btnPaper');
+const btnScissors = document.querySelector('.btnScissors');
+const btnLizard = document.querySelector('.btnLizard');
+const btnSpock = document.querySelector('.btnSpock');
+
 const presentacion = document.querySelector('.presentacion');
 const info = document.querySelector('#info');
 const imgJuego = document.querySelector('.imgJuego');
@@ -15,13 +20,24 @@ btnJugar.addEventListener('click', function () {
     restaCuentaAtras();
 });
 
+btnRock.addEventListener('click', function () { cambiarJugada(1); });
+btnPaper.addEventListener('click', function () { cambiarJugada(2); });
+btnScissors.addEventListener('click', function () { cambiarJugada(3); });
+btnLizard.addEventListener('click', function () { cambiarJugada(4); });
+btnSpock.addEventListener('click', function () { cambiarJugada(5); });
+
+var puntosYo = 0;
+var puntosPC = 0;
+var jugadaYo = 1;
+function cambiarJugada(jugadaNueva) {
+    jugadaYo = jugadaNueva;
+}
+
 var tiempoMax = 5;
 function restaCuentaAtras() {
     cuentaAtras.innerHTML = tiempoMax;
     if (tiempoMax != 0) {
         tiempoMax -= 1;
-
-        setTimeout("restaCuentaAtras()", 1200);
 
         switch (tiempoMax) {
             case 4:
@@ -52,19 +68,30 @@ function restaCuentaAtras() {
                 break;
         }
 
+        cuentaAtras.classList.remove('hide');
         cuentaAtras.classList.add('showCuentaAtras');
+
+        setTimeout("resetAnimacion()", 1000);
 
     } else {
         cuentaAtras.classList.add('hide');
         seleccionFigura();
     }
-};
 
-var figura;
+}
+
+function resetAnimacion() {
+    cuentaAtras.classList.add('hide');
+    setTimeout("restaCuentaAtras()", 200);
+}
+
+
+var jugadaPC;
 function seleccionFigura() {
-    figura = Math.floor(Math.random() * 5 + 1);
+    jugadaPC = Math.floor(Math.random() * 5 + 1);
+    ganador = quienGana(jugadaYo, jugadaPC);
 
-    switch (figura) {
+    switch (jugadaPC) {
         case 1:
             info.innerHTML = "Rock";
             imgJuego.style.backgroundImage = "url(./img/piedra.svg)";
@@ -90,15 +117,108 @@ function seleccionFigura() {
             imgJuego.style.backgroundImage = "url(./img/spock.svg)";
             imgJuego.style.backgroundSize = "60%";
             break;
+
     }
+    puntuar(ganador);
 
     setTimeout('reset()', 2200);
-};
+}
 
 function reset() {
     info.innerHTML = "Ready ...";
     imgJuego.style.backgroundImage = "none";
+    imgJuego.style.backgroundSize = '0%';
     cuentaAtras.classList.remove('hide');
+    document.querySelector('.youLose').classList.add('hide');
+    document.querySelector('.draw').classList.add('hide');
+    document.querySelector('.youWin').classList.add('hide');
     tiempoMax = 5;
     restaCuentaAtras();
-};
+}
+
+function puntuar(ganador) {
+    var miScore = document.querySelector('#miScore');
+    var PCScore = document.querySelector('#PCScore');
+
+    if (ganador == 1) {
+        console.log("GANASTE!");
+        puntosYo = puntosYo + 1;
+        miScore.innerHTML = puntosYo;
+    }
+    else if (ganador == -1) {
+        console.log("PERDISTE!");
+        puntosPC = puntosPC + 1
+        PCScore.innerHTML = puntosPC;
+    }
+    else {
+        console.log("EMPATE!");
+    }
+
+}
+
+function quienGana(jugadaYo, jugadaPC) {
+    // 1 piedra, 2  papel, 3 tijeras, 4 lagarto, 5 spock
+    resultado = -1;
+    document.querySelector('.youLose').classList.remove('hide');
+    if (jugadaYo == jugadaPC) {
+        resultado = 0;
+        document.querySelector('.draw').classList.remove('hide');
+    }
+    else {
+        switch (jugadaYo) {
+            case 1:
+                if (jugadaPC == 3 || jugadaPC == 4) {
+                    resultado = 1;
+                    document.querySelector('.youWin').classList.remove('hide');
+                }
+                break;
+            case 2:
+                if (jugadaPC == 1 || jugadaPC == 5) {
+                    resultado = 1;
+                    document.querySelector('.youWin').classList.remove('hide');
+                }
+                break;
+            case 3:
+                if (jugadaPC == 2 || jugadaPC == 4) {
+                    resultado = 1;
+                    document.querySelector('.youWin').classList.remove('hide');
+                }
+                break;
+            case 4:
+                if (jugadaPC == 2 || jugadaPC == 5) {
+                    resultado = 1;
+                    document.querySelector('.youWin').classList.remove('hide');
+                }
+                break;
+            case 5:
+                if (jugadaPC == 1 || jugadaPC == 3) {
+                    resultado = 1;
+                    document.querySelector('.youWin').classList.remove('hide');
+                }
+                break;
+        }
+    }
+    return resultado;
+}
+
+function traducir(jugada) {
+    var traduccion = "";
+    switch (jugada) {
+        case 1:
+            traduccion = "Rock";
+            break;
+        case 2:
+            traduccion = "Paper";
+            break;
+        case 3:
+            traduccion = "Scissors";
+            break;
+        case 4:
+            traduccion = "Lizzard";
+            break;
+        case 5:
+            traduccion = "Spock";
+            break;
+    }
+    return traduccion;
+}

@@ -24,16 +24,32 @@
         </div>
 
         <div class="btnEleccion hide">
-            <button id="Stone" type="button">Stone</button>
-            <button id="Paper" type="button">Paper</button>
-            <button id="Scissors" type="button">Scissors</button>
-            <button id="Lizard" type="button">Lizard</button>
-            <button id="Spock" type="button">Spock</button>
+            <button id="Stone" class="btnRock" type="button">Rock</button>
+            <button id="Paper" class="btnPaper" type="button">Paper</button>
+            <button id="Scissors" class="btnScissors" type="button">Scissors</button>
+            <button id="Lizard" class="btnLizard" type="button">Lizard</button>
+            <button id="Spock" class="btnSpock" type="button">Spock</button>
+        </div>
+
+        <div class="result">
+            <div class="youWin  hide">
+                <p>You Win!!!</p>
+            </div>
+        </div>
+        <div class="result">
+            <div class="youLose  hide">
+                <p>You Lose ...</p>
+            </div>
+        </div>
+        <div class="result">
+            <div class="draw  hide">
+                <p>WoW ... It's a Draw</p>
+            </div>
         </div>
 
         <div id="score" class="score">
-            <p>Your Score: 0</p>
-            <p>Sheldon's Score: 0</p>
+            <p>Your Score: <span id="miScore">0</span></p>
+            <p>Sheldon's Score: <span id="PCScore">0</span></p>
         </div>
 
         <script src="js/functions.js"></script>
