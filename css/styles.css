@@ -43,10 +43,16 @@ button:hover {
     border: 4px solid #BF331D;
     font-size: 2.5em;
 }
-.active {
+button:active {
     background-color: #7e1b0b;
     border: 4px solid #7e1b0b;
     transition: none;
+}
+button:disabled {
+    background-color: #d36958;
+    border: 4px solid #d36958;
+    transition: none;
+    cursor: not-allowed;
 }
 .presentacion {
     display: flex;

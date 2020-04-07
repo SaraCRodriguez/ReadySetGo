@@ -1,10 +1,10 @@
 
-var btnJugar = document.querySelector('.btnJugar');
-var presentacion = document.querySelector('.presentacion');
-var info = document.querySelector('#info');
-var imgJuego = document.querySelector('.imgJuego');
-var cuentaAtras = document.querySelector('.cuentaAtras');
-var btnEleccion = document.querySelector('.btnEleccion');
+const btnJugar = document.querySelector('.btnJugar');
+const presentacion = document.querySelector('.presentacion');
+const info = document.querySelector('#info');
+const imgJuego = document.querySelector('.imgJuego');
+const cuentaAtras = document.querySelector('.cuentaAtras');
+const btnEleccion = document.querySelector('.btnEleccion');
 
 btnJugar.addEventListener('click', function () {
     presentacion.classList.add('hide');
@@ -92,7 +92,7 @@ function seleccionFigura() {
             break;
     }
 
-    setTimeout('reset()', 5000);
+    setTimeout('reset()', 3000);
 }
 
 function reset() {
