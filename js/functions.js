@@ -20,26 +20,11 @@ btnJugar.addEventListener('click', function () {
     restaCuentaAtras();
 });
 
-btnRock.addEventListener('click', function () {
-    cambiarJugada(1);
-    btnRock.style.backgroundColor = '#5a1106';
-});
-btnPaper.addEventListener('click', function () {
-    cambiarJugada(2);
-    btnPaper.style.backgroundColor = '#5a1106';
-});
-btnScissors.addEventListener('click', function () {
-    cambiarJugada(3);
-    btnScissors.style.backgroundColor = '#5a1106';
-});
-btnLizard.addEventListener('click', function () {
-    cambiarJugada(4);
-    btnLizard.style.backgroundColor = '#5a1106';
-});
-btnSpock.addEventListener('click', function () {
-    cambiarJugada(5);
-    btnSpock.style.backgroundColor = '#5a1106';
-});
+btnRock.addEventListener('click', function () { cambiarJugada(1); });
+btnPaper.addEventListener('click', function () { cambiarJugada(2); });
+btnScissors.addEventListener('click', function () { cambiarJugada(3); });
+btnLizard.addEventListener('click', function () { cambiarJugada(4); });
+btnSpock.addEventListener('click', function () { cambiarJugada(5); });
 
 var puntosYo = 0;
 var puntosPC = 0;
@@ -158,10 +143,15 @@ function puntuar(ganador) {
     if (ganador == 1) {
         puntosYo = puntosYo + 1;
         miScore.innerHTML = puntosYo;
+        document.querySelector('.youWin').classList.remove('hide');
     }
     else if (ganador == -1) {
         puntosPC = puntosPC + 1
         PCScore.innerHTML = puntosPC;
+        document.querySelector('.youLose').classList.remove('hide');
+    }
+    else {
+        document.querySelector('.draw').classList.remove('hide');
     }
 
 }
@@ -169,41 +159,34 @@ function puntuar(ganador) {
 function quienGana(jugadaYo, jugadaPC) {
     // 1 piedra, 2  papel, 3 tijeras, 4 lagarto, 5 spock
     resultado = -1;
-    document.querySelector('.youLose').classList.remove('hide');
     if (jugadaYo == jugadaPC) {
         resultado = 0;
-        document.querySelector('.draw').classList.remove('hide');
     }
-    else {
+    else if (jugadaYo) {
         switch (jugadaYo) {
             case 1:
                 if (jugadaPC == 3 || jugadaPC == 4) {
                     resultado = 1;
-                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 2:
                 if (jugadaPC == 1 || jugadaPC == 5) {
                     resultado = 1;
-                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 3:
                 if (jugadaPC == 2 || jugadaPC == 4) {
                     resultado = 1;
-                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 4:
                 if (jugadaPC == 2 || jugadaPC == 5) {
                     resultado = 1;
-                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 5:
                 if (jugadaPC == 1 || jugadaPC == 3) {
                     resultado = 1;
-                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
         }
