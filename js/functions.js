@@ -20,11 +20,26 @@ btnJugar.addEventListener('click', function () {
     restaCuentaAtras();
 });
 
-btnRock.addEventListener('click', function () { cambiarJugada(1); });
-btnPaper.addEventListener('click', function () { cambiarJugada(2); });
-btnScissors.addEventListener('click', function () { cambiarJugada(3); });
-btnLizard.addEventListener('click', function () { cambiarJugada(4); });
-btnSpock.addEventListener('click', function () { cambiarJugada(5); });
+btnRock.addEventListener('click', function () {
+    cambiarJugada(1);
+    btnRock.style.backgroundColor = '#5a1106';
+});
+btnPaper.addEventListener('click', function () {
+    cambiarJugada(2);
+    btnPaper.style.backgroundColor = '#5a1106';
+});
+btnScissors.addEventListener('click', function () {
+    cambiarJugada(3);
+    btnScissors.style.backgroundColor = '#5a1106';
+});
+btnLizard.addEventListener('click', function () {
+    cambiarJugada(4);
+    btnLizard.style.backgroundColor = '#5a1106';
+});
+btnSpock.addEventListener('click', function () {
+    cambiarJugada(5);
+    btnSpock.style.backgroundColor = '#5a1106';
+});
 
 var puntosYo = 0;
 var puntosPC = 0;
