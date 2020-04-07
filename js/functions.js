@@ -20,17 +20,37 @@ btnJugar.addEventListener('click', function () {
     restaCuentaAtras();
 });
 
-btnRock.addEventListener('click', function () { cambiarJugada(1); });
-btnPaper.addEventListener('click', function () { cambiarJugada(2); });
-btnScissors.addEventListener('click', function () { cambiarJugada(3); });
-btnLizard.addEventListener('click', function () { cambiarJugada(4); });
-btnSpock.addEventListener('click', function () { cambiarJugada(5); });
+btnRock.addEventListener('click', function () {
+    cambiarJugada(1);
+    document.querySelector('.btnRock').style.backgroundColor = '#5a1106';
+});
+btnPaper.addEventListener('click', function () {
+    cambiarJugada(2);
+    document.querySelector('.btnPaper').style.backgroundColor = '#5a1106';
+});
+btnScissors.addEventListener('click', function () {
+    cambiarJugada(3);
+    document.querySelector('.btnScissors').style.backgroundColor = '#5a1106';
+});
+btnLizard.addEventListener('click', function () {
+    cambiarJugada(4);
+    document.querySelector('.btnLizard').style.backgroundColor = '#5a1106';
+});
+btnSpock.addEventListener('click', function () {
+    cambiarJugada(5);
+    document.querySelector('.btnSpock').style.backgroundColor = '#5a1106';
+});
 
 var puntosYo = 0;
 var puntosPC = 0;
 var jugadaYo = 1;
 function cambiarJugada(jugadaNueva) {
     jugadaYo = jugadaNueva;
+    document.querySelector('.btnRock').style.backgroundColor = '#BF331D';
+    document.querySelector('.btnPaper').style.backgroundColor = '#BF331D';
+    document.querySelector('.btnScissors').style.backgroundColor = '#BF331D';
+    document.querySelector('.btnLizard').style.backgroundColor = '#BF331D';
+    document.querySelector('.btnSpock').style.backgroundColor = '#BF331D';
 }
 
 var tiempoMax = 5;
