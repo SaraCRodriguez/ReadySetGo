@@ -135,6 +135,11 @@ footer {
     right: 30px;
 }
 
+@media (max-width: 1450px) {
+    .result {
+        top: 33%;
+    }
+}
 @media (max-width: 900px) {
     body {
         font-size: 15px;
@@ -164,8 +169,7 @@ footer {
         margin: 10px auto;
     }
     .result {
-        font-size: 3em;
-        top: 40%;
+        top: 26%;
     }
     footer {
         padding: 10px;
