@@ -176,3 +176,8 @@ footer {
         position: unset;
     }
 }
+@media (max-width: 450px) {
+    .result {
+        top: 29%;
+    }
+}
