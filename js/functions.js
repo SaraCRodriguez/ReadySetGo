@@ -173,7 +173,6 @@ function puntuar(ganador) {
     else {
         document.querySelector('.draw').classList.remove('hide');
     }
-
 }
 
 function quienGana(jugadaYo, jugadaPC) {
@@ -187,26 +186,36 @@ function quienGana(jugadaYo, jugadaPC) {
             case 1:
                 if (jugadaPC == 3 || jugadaPC == 4) {
                     resultado = 1;
+                    document.querySelector('.youWin').classList.remove('hide');
+                    document.querySelector('.youLose').classList.add('hide');
                 }
                 break;
             case 2:
                 if (jugadaPC == 1 || jugadaPC == 5) {
                     resultado = 1;
+                    document.querySelector('.youLose').classList.add('hide');
+                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 3:
                 if (jugadaPC == 2 || jugadaPC == 4) {
                     resultado = 1;
+                    document.querySelector('.youLose').classList.add('hide');
+                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 4:
                 if (jugadaPC == 2 || jugadaPC == 5) {
                     resultado = 1;
+                    document.querySelector('.youLose').classList.add('hide');
+                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
             case 5:
                 if (jugadaPC == 1 || jugadaPC == 3) {
                     resultado = 1;
+                    document.querySelector('.youLose').classList.add('hide');
+                    document.querySelector('.youWin').classList.remove('hide');
                 }
                 break;
         }
