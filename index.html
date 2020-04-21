@@ -17,6 +17,29 @@
         <h1>The <span>Game</span></h1>
         <button type="button" class="btnJugar">Let's Play!</button>
         <h3 id="info" class="hide">Ready ...</h3>
+
+        <div class="resultContainer">
+            <div class="result">
+                <div class="youWin  hide">
+                    <p>You Win!!!</p>
+                </div>
+            </div>
+            <div class="result">
+                <div class="youLose  hide">
+                    <p>You Lose ...</p>
+                </div>
+            </div>
+            <div class="result">
+                <div class="draw  hide">
+                    <p>WoW ... It's a Draw</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="score" class="score">
+            <p>Your Score: <span id="miScore">0</span></p>
+            <p>Sheldon's Score: <span id="PCScore">0</span></p>
+        </div>
         <div class="presentacion">
             <div>
                 <img src="img/reglas-del-juego.svg" alt="reglas del juego">
@@ -32,27 +55,6 @@
             <button id="Scissors" class="btnScissors" type="button">Scissors</button>
             <button id="Lizard" class="btnLizard" type="button">Lizard</button>
             <button id="Spock" class="btnSpock" type="button">Spock</button>
-        </div>
-
-        <div class="result">
-            <div class="youWin  hide">
-                <p>You Win!!!</p>
-            </div>
-        </div>
-        <div class="result">
-            <div class="youLose  hide">
-                <p>You Lose ...</p>
-            </div>
-        </div>
-        <div class="result">
-            <div class="draw  hide">
-                <p>WoW ... It's a Draw</p>
-            </div>
-        </div>
-
-        <div id="score" class="score">
-            <p>Your Score: <span id="miScore">0</span></p>
-            <p>Sheldon's Score: <span id="PCScore">0</span></p>
         </div>
     </main>
 
